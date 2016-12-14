@@ -24,12 +24,12 @@ preprocess
 '''
 
 starttime = datetime.datetime.now()
-preprocess.create_dic_file()
 # read dictionary
 e2id, rel2id = preprocess.read_dic(base_dir)
 # read train set
 train_h, train_r, train_t, graph, entity_count, left_positive, right_positive = preprocess.read_train_set(base_dir, e2id, rel2id)
 endtime = datetime.datetime.now()
+print train_h[1],train_r[1],train_t[1]
 
 print 'preprocess finished: ', (endtime - starttime)
 

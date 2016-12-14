@@ -138,12 +138,12 @@ f.write("        mr" + '\t' + 'f_mr' + '\t' + 'Hits@10' + '\t' + 'f_Hits@10' + '
 f.write('left:  '+str("%.3f" %(float(l_sum)/total_num)) + '\t' + str("%.3f" %(float(l_filter_sum)/total_num)) + '\t' + str("%.3f" %(float(l_hit_10)/total_num)) + '\t' + str("%.3f" %(float(l_filter_hit_10)/total_num)) + '\t' + str("%.3f" %(float(l_hit_1)/total_num)) + '\t'+ str("%.3f" %(float(l_filter_hit_1)/total_num)) + '\t' + str("%.3f" %(l_mrr/total_num)) + '\t' + str("%.3f" %(l_filter_mrr/total_num))+'\n')
 f.write('right: '+str("%.3f" %(float(r_sum)/total_num)) + '\t' + str("%.3f" %(float(r_filter_sum)/total_num)) + '\t' + str("%.3f" %(float(r_hit_10)/total_num)) + '\t' + str("%.3f" %(float(r_filter_hit_10)/total_num)) + '\t' + str("%.3f" %(float(r_hit_1)/total_num)) + '\t'+ str("%.3f" %(float(r_filter_hit_1)/total_num)) + '\t' + str("%.3f" %(r_mrr/total_num)) + '\t' + str("%.3f" %(r_filter_mrr/total_num))+'\n')
 f.write( 'mean : '+str("%.3f" %(float(r_sum+l_sum)/(2*total_num))) + '\t' + str("%.3f" %(float(r_filter_sum+l_filter_sum)/(2*total_num))) + '\t' + str("%.3f" %(float(r_hit_10+l_hit_10)/(2*total_num))) + '\t' + str("%.3f" %(float(r_filter_hit_10+l_filter_hit_10)/(2*total_num))) + '\t' + str("%.3f" %(float(r_hit_1+l_hit_1)/(2*total_num))) + '\t'+ str("%.3f" %(float(r_filter_hit_1+l_filter_hit_1)/(2*total_num))) + '\t' + str("%.3f" %((r_mrr+l_mrr)/(2*total_num))) + '\t' + str("%.3f" %((r_filter_mrr+l_filter_mrr)/(2*total_num)))+'\n'+'\n')
-f.write("filtered hits@10 rate :"+'\n')
-f.write('relation_type'+'\t'+'left_hits@10'+'\t'+'right_hits@10'+'\n')
-f.write('1-1'+'\t\t'+ str("%.4f" %(float(l_11_h10)/num_11))+'\t\t'+str("%.3f" %(float(r_11_h10)/num_11))+'\n')
-f.write('1-N'+'\t\t'+ str("%.4f" %(float(l_1n_h10)/num_1n))+'\t\t'+str("%.3f" %(float(r_1n_h10)/num_1n))+'\n')
-f.write('N-1'+'\t\t'+ str("%.4f" %(float(l_n1_h10)/num_n1))+'\t\t'+str("%.3f" %(float(r_n1_h10)/num_n1))+'\n')
-f.write('N-N'+'\t\t'+ str("%.4f" %(float(l_nn_h10)/num_nn))+'\t\t'+str("%.3f" %(float(r_nn_h10)/num_nn))+'\n')
+# f.write("filtered hits@10 rate :"+'\n')
+# f.write('relation_type'+'\t'+'left_hits@10'+'\t'+'right_hits@10'+'\n')
+# f.write('1-1'+'\t\t'+ str("%.4f" %(float(l_11_h10)/num_11))+'\t\t'+str("%.3f" %(float(r_11_h10)/num_11))+'\n')
+# f.write('1-N'+'\t\t'+ str("%.4f" %(float(l_1n_h10)/num_1n))+'\t\t'+str("%.3f" %(float(r_1n_h10)/num_1n))+'\n')
+# f.write('N-1'+'\t\t'+ str("%.4f" %(float(l_n1_h10)/num_n1))+'\t\t'+str("%.3f" %(float(r_n1_h10)/num_n1))+'\n')
+# f.write('N-N'+'\t\t'+ str("%.4f" %(float(l_nn_h10)/num_nn))+'\t\t'+str("%.3f" %(float(r_nn_h10)/num_nn))+'\n')
 f.close()
 
 

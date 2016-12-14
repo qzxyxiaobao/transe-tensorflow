@@ -2,7 +2,7 @@ import collections
 import numpy as np
 
 base_dir = "./FB15k/"
-def create_dic_file(base_dir):
+def create_dic_file():
     entity_set = set([])
     rel_set = set([])
     f1 = open(base_dir + "entity2id.data",'w')
@@ -15,10 +15,10 @@ def create_dic_file(base_dir):
         rel_set.add(rel)
     for index, each in enumerate(entity_set):
         f1.write(each + "\t" + str(index) + "\n")
-        print index
     for index, each in enumerate(rel_set):
         f2.write(each + "\t" + str(index) + "\n")
-        print index
+    print "create dicfile successfully"
+
 
 def statistic_frequency(base_dir):
     head_count=[]
@@ -160,9 +160,9 @@ def read_test_set(base_dir, e2id, rel2id):
     graph = {}
     entity_count = {}
     triplet_num = 0
-    with open(base_dir+"test.txt") as f1:
+    with open(base_dir+"test.data") as f1:
         for line in f1:
-            (e1, e2, r) = line.strip().split('\t')
+            (e1, r, e2) = line.strip().split('\t')
             e1 = e2id[e1]
             e2 = e2id[e2]
             r = rel2id[r]
@@ -186,7 +186,7 @@ def read_test_set(base_dir, e2id, rel2id):
     with open(base_dir+"train.data") as f1:
         for line in f1:
             triplet_num += 1
-            (e1, e2, r) = line.strip().split('\t')
+            (e1, r, e2) = line.strip().split('\t')
             e1 = e2id[e1]
             e2 = e2id[e2]
             r = rel2id[r]
@@ -221,9 +221,9 @@ def read_test_set(base_dir, e2id, rel2id):
                 entity_count[e2] = 1
             else:
                 entity_count[e2] += 1
-    with open(base_dir+"valid.txt") as f1:
+    with open(base_dir+"valid.data") as f1:
         for line in f1:
-            (e1, e2, r) = line.strip().split('\t')
+            (e1, r, e2) = line.strip().split('\t')
             e1 = e2id[e1]
             e2 = e2id[e2]
             r = rel2id[r]
