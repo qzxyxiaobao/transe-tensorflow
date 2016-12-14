@@ -22,7 +22,9 @@ def init_vectors(shape):
 '''
 preprocess 
 '''
+
 starttime = datetime.datetime.now()
+preprocess.create_dic_file("./FB15k/")
 # read dictionary
 e2id, rel2id = preprocess.read_dic(base_dir)
 # read train set

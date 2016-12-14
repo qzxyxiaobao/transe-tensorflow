@@ -1,24 +1,24 @@
 import collections
 import numpy as np
 
-
-def create_e2id(base_dir):
+base_dir = "./FB15k/"
+def create_dic_file(base_dir):
     entity_set = set([])
     rel_set = set([])
-    with open(base_dir + "entity2id.data",'w') as f1:
-        with open(base_dir + "relation2id.data","w") as f2:
-            with open(base_dir+ "train.txt") as f3:
-                for line in f3:
-                    (e1, rel, e2) = line.strip().split("\t")
-                    entity_set.add(e1)
-                    entity_set.add(e2)
-                    rel_set.add(rel)
-                for index, each in enumerate(entity_set):
-                    f1.write(each + "\t" + str(index) + "\n")
-                    print index
-                for index, each in enumerate(rel_set):
-                    f2.write(each + "\t" + str(index) + "\n")
-                    print index
+    f1 = open(base_dir + "entity2id.data",'w')
+    f2 = open(base_dir + "relation2id.data","w")
+    f3 = open(base_dir + "train.data")
+    for line in f3:
+        (e1, rel, e2) = line.strip().split("\t")
+        entity_set.add(e1)
+        entity_set.add(e2)
+        rel_set.add(rel)
+    for index, each in enumerate(entity_set):
+        f1.write(each + "\t" + str(index) + "\n")
+        print index
+    for index, each in enumerate(rel_set):
+        f2.write(each + "\t" + str(index) + "\n")
+        print index
 
 def statistic_frequency(base_dir):
     head_count=[]
@@ -74,7 +74,7 @@ def read_dic(base_dir):
 
 
 # read train set
-def read_train_set(base_dir, e2id, rel2id):
+def read_train_set(base_eacheachdir, e2id, rel2id):
     train_h = []
     train_r = []
     train_t = []
@@ -82,7 +82,7 @@ def read_train_set(base_dir, e2id, rel2id):
     entity_count = {}
     left_positive = {}
     right_positive = {}
-    with open(base_dir+"train.txt") as f1:
+    with open(base_dir+"train.data") as f1:
         for line in f1:
             (e1, r, e2) = line.strip().split('\t')
             e1 = e2id[e1]
@@ -183,7 +183,7 @@ def read_test_set(base_dir, e2id, rel2id):
                 right_positive[r][e1] = [e2]
             else:
                 right_positive[r][e1].append(e2)
-    with open(base_dir+"train.txt") as f1:
+    with open(base_dir+"train.data") as f1:
         for line in f1:
             triplet_num += 1
             (e1, e2, r) = line.strip().split('\t')
