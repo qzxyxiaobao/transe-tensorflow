@@ -2,6 +2,8 @@ import collections
 import numpy as np
 
 base_dir = "./FB15k/"
+
+# create dictionary files
 def create_dic_file():
     entity_set = set([])
     rel_set = set([])
