@@ -1,7 +1,9 @@
 import collections
 import numpy as np
 
+
 base_dir = "./weibo/"
+
 def create_dic_file():
     entity_set = set([])
     rel_set = set([])
