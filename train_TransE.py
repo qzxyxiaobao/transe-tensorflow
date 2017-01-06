@@ -6,14 +6,14 @@ import datetime
 
 import preprocess
 
-rel_num = 1345
-entity_num = 14951
+rel_num = 1
+entity_num = 137735
 
 margin = 1
 rate = 0.001
 dim = 100
 batch_size = 100
-base_dir = "./FB15k/"
+base_dir = "./weibo/"
 
 
 def init_vectors(shape):
@@ -114,5 +114,3 @@ with tf.Session() as sess:
         # save model
         np.save("relation2vec.npy", sess.run(rel_vector))
         np.save("entity2vec.npy", sess.run(entity_vector))
-
-

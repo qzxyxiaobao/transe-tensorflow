@@ -7,7 +7,7 @@ import preprocess
 
 rel_num = 1345
 entity_num = 14951
-base_dir = "./FB15k/"
+base_dir = "./twitter/"
 relation2vec_dir = "relation2vec.npy"
 entity2vec_dir = "entity2vec.npy"
 
